@@ -16,10 +16,11 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  const array = path.split("/");
+  return array[array.length - 1];
 }
-
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
 /*
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
@@ -37,10 +38,17 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek input:  [109, 216, 288, 143, 71, 185, -278, 194, 5]
   örnek output: 104
 */
+const a = [50, -26, 153, 7];
+function ortalamaBul(array) {
+  if (array.length === 0) {
+    return null;
+  } else {
+    const toplam = array.reduce((toplam, sayı) => toplam + sayı, 0);
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+    return toplam / array.length;
+  }
 }
+console.log(ortalamaBul(a));
 
 /*
   GÖREV 3
@@ -62,9 +70,16 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(array) {
+  const ortalama = ortalamaBul(array);
+  if (array.length === 0) {
+    return null;
+  } else {
+    return array.filter((sayı) => sayı >= ortalama);
+  }
 }
+
+console.log(ortalamadanBuyukleriBul(a));
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
